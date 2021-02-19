@@ -1,0 +1,1 @@
+INDEX VERSION 1.131+C:\Users\zupper\Desktop\Trilha-Back-End-Nivel1\Trilha1\.metadata\.plugins\org.eclipse.jdt.core
