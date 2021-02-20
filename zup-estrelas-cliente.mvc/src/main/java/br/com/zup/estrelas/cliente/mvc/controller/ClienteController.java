@@ -49,9 +49,16 @@ public class ClienteController {
 	@RequestMapping(value = "/{codigo}",method=RequestMethod.GET)
 	public ModelAndView detalheCliente(@PathVariable("codigo") long codigo) {
 		Cliente cliente = clienteRepository.findByCodigo(codigo);
-		ModelAndView mv = new ModelAndView("cliente/detalheCliente");
+		ModelAndView mv = new ModelAndView("cliente/detalhesCliente");
 		mv.addObject("cliente",cliente);
 		System.out.println("cliente" + cliente);
 		return mv;
+	}
+	
+	@RequestMapping("/deletar")
+	public String deletarCliente(long codigo) {
+		Cliente cliente = clienteRepository.findByCodigo(codigo);
+		clienteRepository.delete(cliente);
+		return "redirect:/clientes";
 	}
 }

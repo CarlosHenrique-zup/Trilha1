@@ -15,23 +15,40 @@
 </head>
 <body>
 	<header>
-		<h3>Clientes:</h3>
-		<h3>
-			<a href="/cliente" class="waves-effect waves-light btn"><i
-				class="material-icons left">add_circle_outline</i>Lista de Cliente</a>
-		</h3>
-		
+		<nav>
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo">Clientes</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/clientes" class="waves-effect waves-light btn"><i
+							class="material-icons left">format_list_bulleted</i>Lista de
+							Clientes</a></li>
+				</ul>
+			</div>
+		</nav>
+
 		<div th:each="cliente : ${cliente}" class="container">
 			<div class="row">
-				<p>Nome: <span th:text="{cliente.nome}"></span></p>
-				<p>Email: <span th:text="{cliente.email}"></span></p>
-				<p>Cpf: <span th:text="{cliente.cpf}"></span></p>
-				<p>Idade: <span th:text="{cliente.idade}"></span></p>
-				<p>Endereço: <span th:text="{cliente.endereco}"></span></p>
-				<p>Telefone: <span th:text="{cliente.telefone}"></span></p>
-			
+				<p>
+					Nome: <span th:text="{cliente.nome}"></span>
+				</p>
+				<p>
+					Email: <span th:text="{cliente.email}"></span>
+				</p>
+				<p>
+					Cpf: <span th:text="{cliente.cpf}"></span>
+				</p>
+				<p>
+					Idade: <span th:text="{cliente.idade}"></span>
+				</p>
+				<p>
+					Endereço: <span th:text="{cliente.endereco}"></span>
+				</p>
+				<p>
+					Telefone: <span th:text="{cliente.telefone}"></span>
+				</p>
+
 			</div>
-		
+
 		</div>
 	</header>
 

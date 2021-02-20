@@ -15,12 +15,19 @@
 </head>
 <body>
 	<header>
-		<h3>Lista de Clientes:</h3>
-		<h3>
-			<a href="/cadastrarCliente" class="waves-effect waves-light btn"><i
-				class="material-icons left">add_circle_outline</i>Cadastrar Cliente</a>
-		</h3>
+		<nav>
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo">Lista de Clientes</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/cadastrarCliente"
+						class="waves-effect waves-light btn"><i
+							class="material-icons left">add_circle_outline</i>Cadastrar
+							Cliente</a></li>
+				</ul>
+			</div>
+		</nav>
 	</header>
+
 	<table class="container">
 		<thead>
 			<tr>
@@ -30,11 +37,12 @@
 				<th>Cpf</th>
 				<th>Endereco</th>
 				<th>Telefone</th>
+				<th>Deletar</th>
 			</tr>
 		</thead>
-		<tbody>	
+		<tbody>
 			<tr th:each="cliente : ${clientes}">
-				<td><a th:href="${(#mvc.url('EC#detalheCliente').arg(0, cliente.codigo)).build()}"><span th:text="${cliente.nome}"></span></a></td>
+				<td><span th:text="${cliente.nome}"></span></td>
 				<td><span th:text="${cliente.idade}"></span></td>
 				<td><span th:text="${cliente.email}"></span></td>
 				<td><span th:text="${cliente.cpf}"></span></td>

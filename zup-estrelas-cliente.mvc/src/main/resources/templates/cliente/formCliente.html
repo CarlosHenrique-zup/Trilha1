@@ -14,11 +14,17 @@
 
 <body>
 
-	<h1>Cadastro de Clientes:</h1>
-	<h3>
-		<a href="/clientes" class="waves-effect waves-light btn"><i
-			class="material-icons left">format_list_bulleted</i>Lista de Clientes</a>
-	</h3>
+	<header>
+		<nav>
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo">Cadastro de Clientes</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/clientes" class="waves-effect waves-light btn"><i
+			class="material-icons left">format_list_bulleted</i>Lista de Clientes</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
 
 	<th:block th:include="mensagemValidacao"></th:block>
 
