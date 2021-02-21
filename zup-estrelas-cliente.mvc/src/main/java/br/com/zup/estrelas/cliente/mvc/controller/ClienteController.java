@@ -27,14 +27,14 @@ public class ClienteController {
 
 	@RequestMapping(value = "/cadastrarCliente", method = RequestMethod.POST)
 	public String form(@Valid Cliente cliente, BindingResult result, RedirectAttributes attributes) {
-		if(result.hasErrors()) {
+		if (result.hasErrors()) {
 			attributes.addFlashAttribute("mensagem", "Verifique os campos!");
 			return "redirect:/cadastrarCliente";
 		}
-		
+
 		clienteRepository.save(cliente);
 		attributes.addFlashAttribute("mensagem", "Cliente cadastrado com sucesso!");
-		
+
 		return "redirect:/cadastrarCliente";
 	}
 
@@ -45,20 +45,34 @@ public class ClienteController {
 		mv.addObject("clientes", clientes);
 		return mv;
 	}
-	
-	@RequestMapping(value = "/{codigo}",method=RequestMethod.GET)
-	public ModelAndView detalheCliente(@PathVariable("codigo") long codigo) {
+
+	@RequestMapping(value = "/{codigo}", method = RequestMethod.GET)
+	public ModelAndView detalhesCliente(@PathVariable("codigo") long codigo) {
 		Cliente cliente = clienteRepository.findByCodigo(codigo);
 		ModelAndView mv = new ModelAndView("cliente/detalhesCliente");
-		mv.addObject("cliente",cliente);
-		System.out.println("cliente" + cliente);
+		mv.addObject("cliente", cliente);
 		return mv;
 	}
-	
-	@RequestMapping("/deletar")
+
+	@RequestMapping(value = "/editarCliente", method = RequestMethod.GET)
+	public ModelAndView editarCliente(long codigo) {
+		Cliente cliente = clienteRepository.findByCodigo(codigo);
+		ModelAndView mv = new ModelAndView("cliente/atualizaCliente");
+		mv.addObject("cliente", cliente);
+		return mv;
+	}
+
+	@RequestMapping(value = "/editarCliente", method= RequestMethod.POST)
+	public String editarClientePost(@Valid Cliente cliente, BindingResult result, RedirectAttributes attributes) {
+		clienteRepository.save(cliente);
+		attributes.addFlashAttribute("sucess", "Cliente alteado com sucesso!");
+		return "redirect:/";
+	}
+
+	@RequestMapping("/deletarCliente")
 	public String deletarCliente(long codigo) {
 		Cliente cliente = clienteRepository.findByCodigo(codigo);
 		clienteRepository.delete(cliente);
-		return "redirect:/clientes";
+		return "redirect:/";
 	}
 }

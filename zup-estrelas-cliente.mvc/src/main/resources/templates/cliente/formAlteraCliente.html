@@ -3,7 +3,7 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
-<title>Cliente Cadastrado</title>
+<title>Altera Clientes</title>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet" />
 <!--Import materialize.css-->
@@ -17,14 +17,10 @@
 	<header>
 		<nav>
 			<div class="nav-wrapper">
-				<a href="#" class="brand-logo">Cadastro de Clientes</a>
+				<a href="editarCliente" class="brand-logo">Altera Clientes</a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<li><a href="/clientes" class="waves-effect waves-light btn"><i
 			class="material-icons left">format_list_bulleted</i>Lista de Clientes</a></li>
-				</ul>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="/editarCliente" class="waves-effect waves-light btn"><i
-			class="material-icons left">create</i>Altera Cliente</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -36,33 +32,33 @@
 		<form class="container" method="post">
 			<div class="row">
 				<div class="input-field col s6">
-					Nome: <input type="text" value="" name="nome" />
+					Nome: <th:attr value="${cliente.nome}"/>
 				</div>
 
 				<div class="input-field col s3">
-					Email: <input type="text" value="" name="email" />
+					Email: <th:attr value="${cliente.email}"/>
 				</div>
 
 				<div class="input-field col s3">
-					Idade: <input type="text" value="" name="idade" />
+					Idade: <th:attr value="${cliente.idade}"/> 
 				</div>
 
 
 				<div class="input-field col s6">
-					Endereco: <input type="text" value="" name="endereco" />
+					Endereco: <th:attr value="${cliente.endereco}"/> 
 				</div>
 
 				<div class="input-field col s3">
-					CPF: <input type="text" value="" name="cpf" />
+					CPF: <th:attr value="${cliente.cpf}"/> 
 				</div>
 
 				<div class="input-field col s3">
-					Telefone: <input type="text" value="" name="telefone" />
+					Telefone: <th:attr value="${cliente.telefone}"/>  
 				</div>
 			</div>
 
 
-			<button type="submit" class="waves-effect waves-light btn">Cadastrar</button>
+			<button type="submit" class="waves-effect waves-light btn">Alterar</button>
 
 		</form>
 	</div>
